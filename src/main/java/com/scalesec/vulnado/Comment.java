@@ -55,6 +55,7 @@ public class Comment {
       e.printStackTrace();
       System.err.println(e.getClass().getName()+": "+e.getMessage());
     } finally {
+	  cxn.close();
       return comments;
     }
   }
