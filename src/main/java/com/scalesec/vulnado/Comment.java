@@ -51,6 +51,7 @@ public class Comment {
         Comment c = new Comment(id, username, body, created_on);
         comments.add(c);
       }
+	  stmt.close();
       cxn.close();
     } catch (Exception e) {
 	  if (stmt!=null)
