@@ -71,7 +71,9 @@ public class Comment {
       Connection con = Postgres.connection();
       PreparedStatement pStatement = con.prepareStatement(sql);
       pStatement.setString(1, id);
-      return 1 == pStatement.executeUpdate();
+	  int k = pStatement.executeUpdate();
+	  pStatement.close()
+      return 1 == k;
     } catch(Exception e) {
       e.printStackTrace();
     } finally {
