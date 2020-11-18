@@ -72,7 +72,7 @@ public class Comment {
       PreparedStatement pStatement = con.prepareStatement(sql);
       pStatement.setString(1, id);
 	  int k = pStatement.executeUpdate();
-	  pStatement.close()
+	  pStatement.close();
       return 1 == k;
     } catch(Exception e) {
       e.printStackTrace();
