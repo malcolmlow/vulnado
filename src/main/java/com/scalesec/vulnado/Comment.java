@@ -36,8 +36,9 @@ public class Comment {
   public static List<Comment> fetch_all() {
     Statement stmt = null;
     List<Comment> comments = new ArrayList();
+	Connection cxn = null;
     try {
-      Connection cxn = Postgres.connection();
+      cxn = Postgres.connection();
       stmt = cxn.createStatement();
 
       String query = "select * from comments;";
@@ -52,11 +53,13 @@ public class Comment {
       }
       cxn.close();
     } catch (Exception e) {
-      cxn.close();
+      if cnx!=null
+		cxn.close();
       e.printStackTrace();
       System.err.println(e.getClass().getName()+": "+e.getMessage());
     } finally {
-	  cxn.close();
+	  if cxn!=null:
+		cxn.close();
       return comments;
     }
   }
