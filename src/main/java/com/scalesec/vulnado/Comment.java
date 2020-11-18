@@ -53,7 +53,9 @@ public class Comment {
       }
       cxn.close();
     } catch (Exception e) {
-      if (cxn!=null)
+	  if (stmt!=null)
+	    stmt.close();
+      if (cxn!=null)  
 		cxn.close();
       e.printStackTrace();
       System.err.println(e.getClass().getName()+": "+e.getMessage());
